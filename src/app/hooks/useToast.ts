@@ -2,7 +2,7 @@ import t from "react-hot-toast";
 
 export default function useToast() {
   function asyncToast<T>(promise: Promise<T>, successMessage: string) {
-    t.promise<T>(
+    return t.promise<T>(
       promise,
       {
        loading: 'Loading',
@@ -21,7 +21,7 @@ export default function useToast() {
        error: {
          duration: 2000
        },
-       position: 'top-left'
+       position: 'bottom-center'
       }
     )
   }
@@ -33,7 +33,7 @@ export default function useToast() {
         backgroundColor: 'rgb(55 65 81)',
         color: '#fff'
       },
-      position: 'top-left'
+      position: 'bottom-center'
      })
   }
 

@@ -63,9 +63,9 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "_id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "Accept",
@@ -76,12 +76,12 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "_id",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "_from",
         "type": "address"
@@ -101,9 +101,9 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "_id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "Decline",
@@ -114,9 +114,9 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "_id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "Freeze",
@@ -221,12 +221,6 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
-        "name": "_id",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
         "internalType": "address",
         "name": "_to",
         "type": "address"
@@ -234,7 +228,7 @@ export const abi = [
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "amount",
+        "name": "_id",
         "type": "uint256"
       }
     ],
@@ -246,9 +240,9 @@ export const abi = [
     "inputs": [
       {
         "indexed": true,
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "_id",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
         "indexed": false,
@@ -302,9 +296,9 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "id",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
         "internalType": "uint256",
@@ -326,9 +320,9 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "id",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
         "internalType": "address",
@@ -350,9 +344,9 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "decline",
@@ -369,9 +363,9 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "emergencyWithdraw",
@@ -382,15 +376,20 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "id",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "getMatch",
     "outputs": [
       {
         "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
           {
             "internalType": "address",
             "name": "initiator",
@@ -455,6 +454,86 @@ export const abi = [
         "internalType": "struct Match",
         "name": "",
         "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMatchs",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "initiator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "opponent",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "winner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxMatches",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "initiatorScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "opponentScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "initiatorAgreement",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "opponentAgreement",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "attempts",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "frozen",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum MatchState",
+            "name": "state",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct Match[]",
+        "name": "",
+        "type": "tuple[]"
       }
     ],
     "stateMutability": "view",
