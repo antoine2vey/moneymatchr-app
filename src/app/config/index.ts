@@ -7,7 +7,7 @@ import { mainnet, sepolia, localhost } from 'wagmi/chains'
 // Get projectId at https://cloud.walletconnect.com
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID
 export const SMASHPROS = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
-export const MONEYMATCHR = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707'
+export const MONEYMATCHR = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'
 
 if (!projectId) throw new Error('Project ID is not defined')
 
